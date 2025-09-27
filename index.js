@@ -1,10 +1,16 @@
-const express = require('express')
-const cheerio = require('cheerio')
-const axios = require('axios')
+import express from 'express'
+import {engine} from 'express-handlebars'
+import axios from 'axios'
+import * as cheerio from 'cheerio'
+
 const PORT = 5173
 const app = express()
 const url = 'https://www.manoramaonline.com/news/latest-news.html'
 let headlines = []
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './views');
+
 async function fethData() {
     const response = await axios(url)
     const data = await response.data
@@ -15,6 +21,7 @@ async function fethData() {
     })
 
 }
+
 
 app.get('/',(req,res)=>{
     res.send(headlines)
