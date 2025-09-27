@@ -24,7 +24,7 @@ async function fethData() {
 
 
 app.get('/',(req,res)=>{
-    res.send(headlines)
+    res.render('home',{items:headlines})
 })
 fethData()
 
