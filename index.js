@@ -2,8 +2,10 @@ import express from 'express'
 import { engine } from 'express-handlebars'
 import axios from 'axios'
 import * as cheerio from 'cheerio'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const PORT = 5173
+const PORT = process.env.PORT
 const app = express()
 app.use(express.static('public'))
 const url = 'https://www.manoramaonline.com/news/latest-news.html'
@@ -74,6 +76,8 @@ app.get('/news/latest-news/:year/:month/:day/:headline', async (req, res) => {
     }
 
 })
+
+
 
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
