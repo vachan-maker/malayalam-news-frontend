@@ -50,8 +50,13 @@ async function fetchArtcle(url) {
 }
 
 app.get('/', async (req, res) => {
+    try{
     const items = await fethData()
     res.render('home', { items: items })
+    }
+    catch(error) {
+        res.status(500).send("Interal Error!")
+    }
 })
 
 app.get('/news/latest-news/:year/:month/:day/:headline', async (req, res) => {
@@ -60,8 +65,13 @@ app.get('/news/latest-news/:year/:month/:day/:headline', async (req, res) => {
     const day = req.params.day
     const headline = req.params.headline
     const url = `https://www.manoramaonline.com/news/latest-news/${year}/${month}/${day}/${headline}`
+    try{
     const article = await fetchArtcle(url)
     res.render('article', { headline: article.title, content: article.content, url: url })
+    }
+    catch(error) {
+        res.status(500).send("Internal Error!")
+    }
 
 })
 
