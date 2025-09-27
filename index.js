@@ -35,7 +35,8 @@ async function fetchArtcle(url) {
         article.push($(element).text())
         
     })
-    return article
+    const headline = $(`.article-header__title`).text()
+    return ({title:headline,content:article})
 }
 
 app.get('/',async (req,res)=>{
@@ -50,7 +51,7 @@ app.get('/news/latest-news/:year/:month/:day/:headline',async(req,res)=>{
     const headline = req.params.headline
     const url = `https://www.manoramaonline.com/news/latest-news/${year}/${month}/${day}/${headline}`
     const article = await fetchArtcle(url)
-    res.render('article',{p:article})
+    res.render('article',{headline:article.title,content:article.content})
 
 })
 
