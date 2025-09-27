@@ -7,26 +7,30 @@ const PORT = 5173
 const app = express()
 app.use(express.static('public'))
 const url = 'https://www.manoramaonline.com/news/latest-news.html'
-let headlines = []
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 async function fethData() {
+    const headlines = []
     const response = await axios(url)
     const data = await response.data
     const $ = cheerio.load(data)
     console.log(data)
     $('.cmp-story-list__title-link').each((index,element)=>{
-        headlines.push($(element).attr('title'))
+        const headline = $(element).attr('title')
+        const link = $(element).attr('href') 
+        headlines.push({headline,link})
     })
+    return headlines
 
 }
 
 
-app.get('/',(req,res)=>{
-    res.render('home',{items:headlines})
+app.get('/',async (req,res)=>{
+    const items = await fethData()
+    res.render('home',{items:items})
 })
-fethData()
+
 
 app.listen(PORT, ()=>console.log(`Listening on PORT: ${PORT}`))
