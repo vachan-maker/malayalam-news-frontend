@@ -69,7 +69,7 @@ app.get('/news/latest-news/:year/:month/:day/:headline', async (req, res) => {
     const url = `https://www.manoramaonline.com/news/latest-news/${year}/${month}/${day}/${headline}`
     try{
     const article = await fetchArtcle(url)
-    res.render('article', { headline: article.title, content: article.content, url: url })
+    res.render('article', { headline: article.title, content: article.content, url: url,title:article.title })
     }
     catch(error) {
         res.status(500).send("Internal Error!")
