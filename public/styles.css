@@ -5,10 +5,11 @@ html { font-family: 'Gayathri', sans-serif; }
 body {
     font-size: 1.3rem;
     padding: 10px;
+    line-height: 1.7;
 }
 
 ul li {
-    padding-top: 12px;
+    margin-top: 15px;
 }
 
 header {
@@ -17,7 +18,17 @@ header {
 
 article {
     max-width: 70ch;
-    line-height: 1.7;
     margin: 2rem auto;
+    
+}
+
+article p {
     font-size: 1.5rem;
+}
+
+body > footer {
+    border-top:2px solid black;
+}
+body > footer p {
+    text-align: center;
 }

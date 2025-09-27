@@ -51,7 +51,7 @@ app.get('/news/latest-news/:year/:month/:day/:headline',async(req,res)=>{
     const headline = req.params.headline
     const url = `https://www.manoramaonline.com/news/latest-news/${year}/${month}/${day}/${headline}`
     const article = await fetchArtcle(url)
-    res.render('article',{headline:article.title,content:article.content})
+    res.render('article',{headline:article.title,content:article.content,url:url})
 
 })
 
