@@ -1,3 +1,16 @@
 @import url('https://smc.org.in/fonts/gayathri.css');
               
 html { font-family: 'Gayathri', sans-serif; }
+
+body {
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+ul li {
+    padding-top: 12px;
+}
+
+header {
+    border-bottom: 2px solid black;
+}
