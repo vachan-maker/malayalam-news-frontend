@@ -78,6 +78,8 @@ app.get('/news/latest-news/:year/:month/:day/:headline', async (req, res) => {
 })
 
 
-
+app.use((req,res,next)=>{
+    res.status(404).send("Page Not Found")
+})
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
