@@ -5,6 +5,7 @@ import * as cheerio from 'cheerio'
 
 const PORT = 5173
 const app = express()
+app.use(express.static('public'))
 const url = 'https://www.manoramaonline.com/news/latest-news.html'
 let headlines = []
 app.engine('handlebars', engine());
