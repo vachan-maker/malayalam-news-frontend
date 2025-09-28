@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ml">
+
 <head>
     <meta charset="utf-8">
-    <title>Malayalam News</title>
-    <link rel="stylesheet" href="/styles.css"/>
+    <title>{{title}}</title>
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="/styles.css" />
 </head>
+
 <body>
     <header>
-        <a href="/"><p>Malayalam News</p></a>
+        <a href="/">
+            <p lang="en">Malayalam News</p>
+        </a>
+        <time>{{date}}</time>
     </header>
     {{{body}}}
     <footer>
         <p>Source: <a href="https://manoramaonline.com">Manorama Online</a></p>
     </footer>
 </body>
+
 </html>

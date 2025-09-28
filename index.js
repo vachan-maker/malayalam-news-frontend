@@ -13,6 +13,8 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// const date = new Date().toLocaleDateString()
+
 async function fethData() {
     const headlines = []
     try {
@@ -54,7 +56,7 @@ async function fetchArtcle(url) {
 app.get('/', async (req, res) => {
     try{
     const items = await fethData()
-    res.render('home', { items: items })
+    res.render('home', { items: items,title:"Malayalam News Frontend" })
     }
     catch(error) {
         res.status(500).send("Interal Error!")
