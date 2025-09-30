@@ -1,6 +1,8 @@
+import { fetchArtcle,fetchData } from "../utils/utils.js"
+
 const getHome = async (req, res) => {
     try{
-    const items = await fethData()
+    const items = await fetchData()
     res.render('home', { items: items,title:"Malayalam News Frontend" })
     }
     catch(error) {
