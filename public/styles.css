@@ -22,7 +22,9 @@ article {
 article p {
     font-size: 1.5rem;
 }
-
+article h1 {
+    text-align: center;
+}
 
 body > footer p {
     text-align: center;
