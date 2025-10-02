@@ -12,9 +12,6 @@ ul li {
     margin-top: 15px;
 }
 
-header {
-    border-bottom: 2px solid black;
-}
 
 article {
     max-width: 70ch;
@@ -26,9 +23,17 @@ article p {
     font-size: 1.5rem;
 }
 
-body > footer {
-    border-top:2px solid black;
-}
+
 body > footer p {
     text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #212121;
+        color: #dcdcdc;
+    }
+    a {
+        color: #fcb000;
+    }
 }
