@@ -11,10 +11,7 @@ const getHome = async (req, res) => {
 }
 
 const getArticle = async (req, res) => {
-    const year = req.params.year
-    const month = req.params.month
-    const day = req.params.day
-    const headline = req.params.headline
+    const { year, month, day, headline } = req.params
     const url = `https://www.manoramaonline.com/news/latest-news/${year}/${month}/${day}/${headline}`
     try{
     const article = await fetchArtcle(url)
