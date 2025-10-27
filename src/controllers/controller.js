@@ -34,4 +34,4 @@ const getDistrictArticle = async(req,res) => {
     }
 
 }
-export {getArticle,getHome}
+export { getArticle,getHome,getDistrictArticle }
